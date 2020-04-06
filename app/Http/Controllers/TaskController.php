@@ -75,8 +75,6 @@ class TaskController extends Controller
     {
         $todo->delete();
 
-        // return response('Todo verwijderd', 200);
-
         return response([
             "message" => "Je hebt een todo verwijderd.",
             201
