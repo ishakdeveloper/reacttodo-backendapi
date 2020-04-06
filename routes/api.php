@@ -22,4 +22,3 @@ Route::get('/todos', 'TaskController@index');
 Route::post('/todos', 'TaskController@store');
 Route::patch('/todos/{todo}', 'TaskController@update');
 Route::delete('/todos/{todo}', 'TaskController@destroy');
-

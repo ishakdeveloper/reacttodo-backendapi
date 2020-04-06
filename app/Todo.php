@@ -6,5 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Todo extends Model
 {
-    protected $fillable = ['name'];
+    public $timestamps = false;
+    protected $fillable = ['id', 'name', 'completed', 'files', 'uri', 'public', 'height', 'width'];
 }

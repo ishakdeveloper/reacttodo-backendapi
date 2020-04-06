@@ -32,13 +32,16 @@ class TaskController extends Controller
     public function store(Request $request)
     {
         $data = $request->validate([
-            'name' => 'required|string'
+            'id' => 'integer',
+            'name' => 'required|string',
+            'completed' => 'boolean',
+            'files' => 'image|nullable|max:1999'
         ]);
 
         $todo = Todo::create($data);
 
         return response($todo, 201);
- 
+
     }
 
     /**
@@ -51,7 +54,10 @@ class TaskController extends Controller
     public function update(Request $request, Todo $todo)
     {
         $data = $request->validate([
-            'name' => 'required|string'
+            'id' => 'integer',
+            'name' => 'required|string',
+            'completed' => 'boolean',
+            'files' => 'image|nullable|max:1999'
         ]);
 
         $todo->update($data);
@@ -69,6 +75,12 @@ class TaskController extends Controller
     {
         $todo->delete();
 
-        return response('Todo verwijderd', 200);
+        // return response('Todo verwijderd', 200);
+
+        return response([
+            "message" => "Je hebt een todo verwijderd.",
+            201
+        ]);
+
     }
 }
